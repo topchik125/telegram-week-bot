@@ -32,7 +32,10 @@ def reset_week_if_needed():
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     kb = [["/list", "/next"], ["/help"]]
     await update.message.reply_text(
-        "Привет! Просто отправь сообщение в формате: Фамилия ДеньНедели Пример: Иванов понедельник",
+        "Привет! Просто отправь сообщение в формате:
+Фамилия ДеньНедели
+
+Пример: Иванов понедельник",
         reply_markup=ReplyKeyboardMarkup(kb, resize_keyboard=True)
     )
 
