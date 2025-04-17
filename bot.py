@@ -23,22 +23,18 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def list_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = load_data()
-    result = "Текущая неделя:
-"
+    result = "Текущая неделя:"
     for day in DAYS:
         entries = data["current"].get(day, [])
-        result += f"{day.title()}: {', '.join(entries) if entries else '—'}
-"
+        result += f"{day.title()}: {', '.join(entries) if entries else '—'}"
     await update.message.reply_text(result)
 
 async def list_next(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = load_data()
-    result = "Следующая неделя:
-"
+    result = "Следующая неделя:"
     for day in DAYS:
         entries = data["next"].get(day, [])
-        result += f"{day.title()}: {', '.join(entries) if entries else '—'}
-"
+        result += f"{day.title()}: {', '.join(entries) if entries else '—'}"
     await update.message.reply_text(result)
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
